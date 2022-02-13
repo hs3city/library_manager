@@ -1,0 +1,19 @@
+ports:
+  - port: 8081
+    visibility: public
+  - port: 8082
+    visibility: public
+
+tasks:
+  - name: Run DB
+    command: |
+      docker run --rm -p 3306:3306 -e MYSQL_USER=pjwstk -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=library -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+
+vscode:
+  extensions:
+    - GabrielBB.vscode-lombok
+    - vscjava.vscode-java-test
+    - vscjava.vscode-java-dependency
+    - vscjava.vscode-maven
+    - redhat.java
+    - vscjava.vscode-java-pack
